@@ -4,10 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(location.search);
 
     const client = new StreamerbotClient({
-      host: params.get("host"),
-      port: parseInt(params.get("port"), 10),
-      endpoint: params.get("endpoint"),
-      password: params.get("password"),
+      host: params.get("host") || "127.0.0.1",
+      port: parseInt(params.get("port"), 10) || 8080,
+      endpoint: params.get("endpoint") || "/",
+      password: params.get("password") || "",
       autoReconnect: true,
       immediate: true,
     });
